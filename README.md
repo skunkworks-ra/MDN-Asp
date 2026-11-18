@@ -585,7 +585,7 @@ tclean(vis='sim_data_VLA.ms', imagename='jet', imsize=512, cell='12.0arcsec', sp
 
 ![Simulated jet results](docs/jet_compare_masked.png)
 
-Simulated jet with lobes, 128 Jy true flux. CASA Asp, MDN-Asp and the two diffusion proposers with the same mask and loop settings. Rows are the model, the residual, and the 1 sigma error of each component with the others held fixed, on the same scale as the model. CASA Asp has no error map.
+Simulated jet with lobes, 128 Jy true flux. CASA Asp, MDN-Asp and the two diffusion proposers with the same mask and loop settings. Rows are the model, the residual, and the 1 sigma error of each component with the others held fixed, on its own scale. CASA Asp has no error map.
 
 ## Error maps
 
