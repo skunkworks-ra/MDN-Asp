@@ -1,0 +1,9 @@
+.pixi/
+__pycache__/
+*.egg-info/
+/data/
+casa-*.log
+TempLattice*/
+references/
+/runs/
+/models/

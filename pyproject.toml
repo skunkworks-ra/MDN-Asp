@@ -1,0 +1,47 @@
+[project]
+name            = "mdn-asp"
+version         = "0.1.0"
+description     = "MDN-Asp: learned Asp minor cycle for CLEAN, explicit PSF in the loop"
+readme          = "README.md"
+requires-python = ">=3.12"
+
+[build-system]
+requires      = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["mdn_asp*"]
+
+[tool.pixi.workspace]
+channels  = ["conda-forge", "pytorch"]
+platforms = ["linux-64"]
+
+[tool.pixi.dependencies]
+python          = "3.12.*"
+numpy           = ">=1.26"
+scipy           = ">=1.12"
+astropy         = ">=6.0"
+pytest          = ">=8.0"
+matplotlib-base = ">=3.8"
+huggingface_hub = ">=0.24"
+safetensors     = ">=0.4"
+
+[tool.pixi.pypi-dependencies]
+casatools = ">=6.7.5"
+casatasks = ">=6.7.5"
+mdn-asp   = {path = ".", editable = true}
+
+[tool.pixi.feature.cpu.dependencies]
+pytorch = {version = ">=2.2", channel = "pytorch"}
+cpuonly = {channel = "pytorch"}
+
+[tool.pixi.feature.gpu.dependencies]
+pytorch      = {version = ">=2.2",  channel = "pytorch"}
+pytorch-cuda = {version = ">=12.1", channel = "pytorch"}
+
+[tool.pixi.environments]
+default = {features = ["cpu"], solve-group = "cpu"}
+gpu     = {features = ["gpu"], solve-group = "gpu"}
+
+[tool.pixi.tasks]
+test = "python -m pytest tests/ -v"
