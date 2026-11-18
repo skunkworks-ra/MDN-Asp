@@ -485,8 +485,7 @@ pixi run -e gpu python -u scripts/run_imaging.py \
     --sigma_max_px 11.2 \
     --n_posterior_samples 200 \
     --flux_clip \
-    --global_threshold 0.05 \
-    --error_map_joint
+    --global_threshold 0.05
 ```
 
 Shape-prior diffusion
@@ -586,11 +585,11 @@ tclean(vis='sim_data_VLA.ms', imagename='jet', imsize=512, cell='12.0arcsec', sp
 
 ![Simulated jet results](docs/jet_compare_masked.png)
 
-Simulated jet with lobes, 128 Jy true flux. CASA Asp, MDN-Asp and the two diffusion proposers with the same mask and loop settings. Rows are the model, the residual, and the 1 sigma error on the same scale as the model. CASA Asp has no error map.
+Simulated jet with lobes, 128 Jy true flux. CASA Asp, MDN-Asp and the two diffusion proposers with the same mask and loop settings. Rows are the model, the residual, and the 1 sigma error of each component with the others held fixed, on the same scale as the model. CASA Asp has no error map.
 
 ## Error maps
 
-`--error_map` writes `<image>.errormap` and `--error_map_joint` writes `<image>.errormap_joint`. Both hold the per-pixel 1 sigma on the model, in Jy/pixel. Diffusion runs write `<image>.diff_err` with `--diff_error`.
+`--error_map` writes `<image>.errormap`, the per-pixel 1 sigma on the model in Jy/pixel. Each component contributes the spread over its candidate shapes and its flux error with the other components held fixed. For the diffusion proposers `--diff_amp_error` writes the per-tile flux part as `<image>.amp_error`, and `--diff_error` keeps the shape spread of each tile in `tiles_state.npz`.
 
 ## Use of AI
 

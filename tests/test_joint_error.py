@@ -81,3 +81,4 @@ def test_candidate_log_prior_matches_mixture_and_inherits_nearest():
                              cur=shapes[0][:2], sigma_min=0.5, sigma_max=20.0)
     lw = torch.log_softmax(torch.tensor([2.0, -8.0], dtype=torch.float64), 0).numpy()
     assert np.allclose(lp, [lw[0], lw[1], lw[0]])
+
