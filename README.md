@@ -592,6 +592,10 @@ Simulated jet with lobes, 128 Jy true flux. CASA Asp, MDN-Asp and the two diffus
 
 `--error_map` writes `<image>.errormap` and `--error_map_joint` writes `<image>.errormap_joint`. Both hold the per-pixel 1 sigma on the model, in Jy/pixel. Diffusion runs write `<image>.diff_err` with `--diff_error`.
 
+## Use of AI
+
+I used an AI assistant (Anthropic's Claude) to help write and test the code, run the experiments and draft this README. The method, the checks and the decisions are mine. Any errors are mine too, and the responsibility for this work stays with me.
+
 ## References
 
 - Högbom 1974, A&AS, 15, 417
